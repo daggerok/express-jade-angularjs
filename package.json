@@ -1,0 +1,35 @@
+{
+  "name": "express-jade-angularjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:frontend": "npm-run-all build:frontend:*",
+    "build:frontend:mkdirp": "mkdirp ./backend/public/",
+    "build:frontend:rimraf": "rimraf ./backend/public/*",
+    "build:frontend:build": "parcel build --no-content-hash --no-cache -d ./backend/public/ -o bundle.js ./frontend/main.js",
+    "build:frontend:ncp": "ncp ./frontend/favicon.ico ./backend/public/",
+    "start:build": "npm run build",
+    "start:backend": "node ./backend/server.js",
+    "start": "npm-run-all start:*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Maksim Kostromin <daggerok@gmail.com> (https://github.com/daggerok)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "4.16.0",
+    "express": "4.16.4",
+    "jade": "1.11.0",
+    "mkdirp": "0.5.1",
+    "ncp": "2.0.0",
+    "npm-run-all": "4.1.3",
+    "parcel-bundler": "1.10.3",
+    "rimraf": "2.6.2"
+  },
+  "dependencies": {
+    "angular": "1.7.5",
+    "jquery": "3.3.1"
+  }
+}
